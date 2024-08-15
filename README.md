@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Book Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Book Manager is a web application that allows you to manage books through a RESTful API. The backend is built using Django and Django REST Framework, while the frontend is powered by React.
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+- Node.js
+- Python 3
+- Django
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Follow the steps below to set up the project.
 
-### `npm test`
+### 1. Clone the Repository
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/Marrwan/book_manager.git
 
-### `npm run build`
+cd book-manager
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install Frontend Dependencies
+Navigate to the project root and install the necessary Node.js packages:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the Frontend Server
+```bash
+npm start
+```
+4. Set Up the Backend Environment
+Navigate to the backend folder:
 
-### `npm run eject`
+```bash
+cd bookmanager
+```
+Create a Python virtual environment:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+python -m venv venv
+```
+Activate the virtual environment:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+source venv/bin/activate
+````
+5. Install Backend Dependencies
+Install the required Python packages:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+pip install -r requirements.txt
+```
+6. Create Migrations and Migrate
+Apply the database migrations:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+7. Run the Backend Server
+Start the Django development server:
 
-## Learn More
+```bash
+python manage.py runserver
+```
+8. Access the Frontend
+You can access the frontend at:
+```arduino
+http://localhost:3000
+```
+9. API Configuration
+If you change the backend port, you will need to modify the API_URL in the bookApi.js file inside the api folder of the frontend app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+10. API Documentation
+API documentation is available at:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+http://localhost:8000/api/docs
+```
 
-### Code Splitting
+Available Endpoints:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `GET /api/books/:` List all books.
+- `POST /api/books/:` Create a new book.
+- `GET /api/books/{id}/:` Get details of a specific book.
+- `PUT /api/books/{id}/:` Update a specific book.
